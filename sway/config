@@ -1,0 +1,44 @@
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $left left
+set $down down
+set $up up
+set $right right
+set $term alacritty
+set $menu wofi --show drun
+
+### Wallpaper configuration
+output * bg /home/vl/Pictures/wallhaven-yjkyxl.jpg fill
+
+exec = firefox & spotify
+
+### GTK themes
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+    gsettings set $gnome-schema icon-theme 'Arc'
+    gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Ice'
+    gsettings set $gnome-schema font-name 'JetBrainsMono Nerd Font 12'
+}
+
+### Input configuration
+input * {
+    xkb_layout us,ua
+    xkb_options grp:alt_shift_toggle
+}
+#
+# Status Bar:
+#
+bar swaybar_command waybar
+
+gaps outer 5px
+gaps inner 10px
+smart_gaps off
+default_border pixel 2
+client.focused "#a3be8c" "#a3be8c" "#4c566a"
+smart_borders 1
+
+font pango:JetBrainsMono Nerd Font 12
+
+include ~/.config/sway/config.d/*
